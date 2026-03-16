@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import OverlayMenu from "./OverlayMenu";
+import LazyImage from "./LazyImage";
 import Logo from "../assets/Logo.png";
 import { FiMenu } from "react-icons/fi";
 

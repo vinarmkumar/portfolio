@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+import LazyImage from "../components/LazyImage";
 import boy from "../assets/boy.png";
 
 export default function About() {

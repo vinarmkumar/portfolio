@@ -1,12 +1,55 @@
 @import "tailwindcss";
-html, body{
+
+/* ===== SMOOTH SCROLLING & PERFORMANCE ===== */
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+html, body {
     font-family: "poppins", sans-serif;
     overflow-x: hidden;
     margin: 0;
     padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+/* Optimize performance for animations */
+* {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
 }
 h1,h2{
     font-family: "Roboto", sans-serif;
+}
+
+/* ===== PERFORMANCE OPTIMIZATIONS ===== */
+img {
+    loading: lazy;
+    decoding: async;
+}
+
+/* GPU acceleration for motion animations */
+[class*="motion-"] {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Smooth transitions for interactions */
+button, a, input {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 @layer utilities{

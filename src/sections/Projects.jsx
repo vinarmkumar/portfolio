@@ -1,5 +1,6 @@
 import { useState, useEffect, useMemo } from "react"
 
+import LazyImage from "../components/LazyImage";
 import img1 from "../assets/img1.JPG"
 import img2 from "../assets/img2.JPG"
 import img3 from "../assets/img3.JPG"

@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
+import LazyImage from "../components/LazyImage";
 import Astra from "../assets/Astra.png";
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
