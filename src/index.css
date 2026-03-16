@@ -1,0 +1,221 @@
+@import "tailwindcss";
+html, body{
+    font-family: "poppins", sans-serif;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+h1,h2{
+    font-family: "Roboto", sans-serif;
+}
+
+@layer utilities{
+    .gradient{
+        background: linear-gradient(-45deg, #302b63, #00bf8f, #1cd8d2 );
+    }
+    
+    /* ===== EXPERIENCE SECTION - SOPHISTICATED WARM TONES ===== */
+    .experience-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.2rem;
+        backdrop-filter: blur(20px) saturate(180%);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 
+            0 8px 32px rgba(0, 0, 0, 0.3),
+            inset 0 1px 1px rgba(255, 255, 255, 0.1);
+    }
+    
+    .experience-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(217, 119, 6, 0.15), rgba(180, 83, 9, 0.1), rgba(120, 53, 15, 0.05));
+        border-radius: 1.2rem;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .experience-card:hover::before {
+        opacity: 1;
+    }
+    
+    .experience-card::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.8), transparent);
+        opacity: 0;
+        transition: opacity 0.5s ease;
+    }
+    
+    .experience-card:hover::after {
+        opacity: 1;
+    }
+    
+    .experience-card-gradient-1 {
+        background: linear-gradient(135deg, 
+            rgba(217, 119, 6, 0.12) 0%,
+            rgba(180, 83, 9, 0.08) 50%,
+            rgba(15, 23, 42, 0.9) 100%);
+    }
+    
+    .experience-card-gradient-2 {
+        background: linear-gradient(135deg, 
+            rgba(139, 92, 246, 0.1) 0%,
+            rgba(88, 28, 135, 0.08) 50%,
+            rgba(15, 23, 42, 0.9) 100%);
+    }
+    
+    .experience-card-gradient-3 {
+        background: linear-gradient(135deg, 
+            rgba(20, 184, 166, 0.12) 0%,
+            rgba(15, 118, 110, 0.08) 50%,
+            rgba(15, 23, 42, 0.9) 100%);
+    }
+    
+    /* ===== TIMELINE DOT - REFINED ANIMATION ===== */
+    .timeline-dot {
+        position: relative;
+        background: linear-gradient(135deg, #fbbf24, #d97706);
+        box-shadow: 
+            0 0 25px rgba(217, 119, 6, 0.6),
+            0 0 50px rgba(251, 191, 36, 0.3),
+            inset -2px -2px 6px rgba(0, 0, 0, 0.3);
+        animation: refined-pulse 2.5s ease-in-out infinite;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    @keyframes refined-pulse {
+        0%, 100% {
+            box-shadow: 
+                0 0 25px rgba(217, 119, 6, 0.6),
+                0 0 50px rgba(251, 191, 36, 0.3),
+                inset -2px -2px 6px rgba(0, 0, 0, 0.3);
+            transform: scale(1);
+        }
+        50% {
+            box-shadow: 
+                0 0 35px rgba(217, 119, 6, 0.8),
+                0 0 70px rgba(251, 191, 36, 0.5),
+                inset -2px -2px 6px rgba(0, 0, 0, 0.2);
+            transform: scale(1.1);
+        }
+    }
+    
+    /* ===== TESTIMONIAL CARDS - WARM & INVITING ===== */
+    .testimonial-card {
+        position: relative;
+        overflow: hidden;
+        background: linear-gradient(135deg, 
+            rgba(120, 53, 15, 0.08),
+            rgba(15, 23, 42, 0.85));
+        border: 1.5px solid rgba(217, 119, 6, 0.2);
+        border-radius: 1.3rem;
+        transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        backdrop-filter: blur(16px) saturate(150%);
+        box-shadow: 
+            0 10px 40px rgba(0, 0, 0, 0.2),
+            inset 0 1px 1px rgba(255, 255, 255, 0.08);
+    }
+    
+    .testimonial-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(217, 119, 6, 0.15), transparent);
+        opacity: 0;
+        transition: all 0.6s ease;
+        pointer-events: none;
+    }
+    
+    .testimonial-card:hover::before {
+        top: -25%;
+        right: -25%;
+        opacity: 1;
+    }
+    
+    .testimonial-card:hover {
+        border-color: rgba(217, 119, 6, 0.5);
+        background: linear-gradient(135deg, 
+            rgba(120, 53, 15, 0.15),
+            rgba(15, 23, 42, 0.9));
+        box-shadow: 
+            0 15px 60px rgba(217, 119, 6, 0.15),
+            inset 0 1px 1px rgba(255, 255, 255, 0.12),
+            0 0 30px rgba(217, 119, 6, 0.08);
+        transform: translateY(-6px);
+    }
+    
+    /* ===== STAR RATING - PREMIUM STYLE ===== */
+    .star-rating {
+        display: flex;
+        gap: 0.4rem;
+        justify-content: flex-start;
+    }
+    
+    .star {
+        color: #fbbf24;
+        font-size: 1rem;
+        text-shadow: 0 2px 4px rgba(251, 191, 36, 0.3);
+        transition: all 0.3s ease;
+    }
+    
+    .testimonial-card:hover .star {
+        text-shadow: 0 2px 8px rgba(251, 191, 36, 0.6);
+    }
+    
+    /* ===== QUOTE STYLING - SOPHISTICATED ===== */
+    .quote-text {
+        position: relative;
+        font-size: 1rem;
+        font-weight: 500;
+        line-height: 1.6;
+        color: #e5e7eb;
+        letter-spacing: 0.3px;
+    }
+    
+    .quote-mark {
+        font-size: 3rem;
+        color: rgba(217, 119, 6, 0.3);
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        font-weight: 900;
+        opacity: 0.7;
+    }
+    
+    /* ===== PROFILE AVATAR - DYNAMIC COLORS ===== */
+    .profile-avatar {
+        background: linear-gradient(135deg, #fbbf24, #f59e0b, #d97706);
+        position: relative;
+        box-shadow: 
+            0 0 25px rgba(217, 119, 6, 0.5),
+            inset 0 -2px 8px rgba(0, 0, 0, 0.2),
+            0 1px 3px rgba(255, 255, 255, 0.2);
+        animation: avatar-glow 3.5s ease-in-out infinite;
+        border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+    
+    @keyframes avatar-glow {
+        0%, 100% {
+            box-shadow: 
+                0 0 25px rgba(217, 119, 6, 0.5),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.2),
+                0 1px 3px rgba(255, 255, 255, 0.2);
+        }
+        50% {
+            box-shadow: 
+                0 0 40px rgba(217, 119, 6, 0.8),
+                inset 0 -2px 8px rgba(0, 0, 0, 0.15),
+                0 1px 3px rgba(255, 255, 255, 0.3);
+        }
+    }
+}
