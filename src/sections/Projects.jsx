@@ -4,12 +4,12 @@ import LazyImage from "../components/LazyImage";
 import img1 from "../assets/img1.JPG"
 import img2 from "../assets/img2.JPG"
 import img3 from "../assets/img3.JPG"
+import quantumcode from "../assets/quantumcode.png"
 
 import photo1 from "../assets/photo1.JPG"
 import photo2 from "../assets/photo2.PNG"
 import photo3 from "../assets/photo3.png"
 import { motion } from "framer-motion"
-
 
 const useIsMobile = (query = "(max-width : 639px)") => {
   const [isMobile, setIsMobile] = useState(
@@ -27,13 +27,21 @@ const useIsMobile = (query = "(max-width : 639px)") => {
   return isMobile;
 }
 
-
 export default function Projects() {
   const isMobile = useIsMobile();
   const [currentProject, setCurrentProject] = useState(0);
 
   const projects = useMemo(
     () => [
+      {
+        title: "QuantumCode",
+        tagline: "Competitive Coding",
+        description: "A competitive coding platform with real-time execution.",
+        link: "https://quantumcodes.netlify.app/",
+        bgGradient: "from-[#0f2027] via-[#203a43] to-[#2c5364]",
+        accentColor: "#1cd8d2",
+        image: quantumcode,
+      },
       {
         title: "nk studio",
         tagline: "Creative Excellence",
@@ -68,7 +76,7 @@ export default function Projects() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentProject((prev) => (prev + 1) % projects.length);
-    }, 5000);
+    }, 8000);
     return () => clearInterval(interval);
   }, [projects.length]);
 
@@ -76,7 +84,7 @@ export default function Projects() {
 
   return (
     <section id="projects" className="relative w-full bg-black text-white min-h-screen py-20 px-4 md:px-8 flex flex-col items-center justify-center overflow-hidden">
-      {/* Section Title */}
+      
       <motion.div
         className="text-center mb-16 relative z-10"
         initial={{ opacity: 0, y: -30 }}
@@ -89,7 +97,6 @@ export default function Projects() {
         </h2>
       </motion.div>
 
-      {/* Projects Container */}
       <div className="w-full max-w-7xl mx-auto relative z-10">
         <motion.div
           key={currentProject}
@@ -98,10 +105,9 @@ export default function Projects() {
           exit={{ opacity: 0, scale: 0.95 }}
           transition={{ duration: 0.8, type: "spring", stiffness: 300 }}
         >
-          {/* Project Card - Modern Design */}
+          
           <div className={`relative w-full min-h-[600px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-gradient-to-br ${project.bgGradient}`}>
-            
-            {/* Animated Background Effects */}
+
             <div className="absolute inset-0 opacity-30">
               <motion.div 
                 className="absolute -top-40 -left-40 w-80 h-80 rounded-full blur-3xl"
@@ -117,10 +123,8 @@ export default function Projects() {
               />
             </div>
 
-            {/* Content Grid */}
             <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 h-full p-8 md:p-16 items-center">
-              
-              {/* Left Content */}
+
               <motion.div 
                 className="flex flex-col justify-center space-y-6"
                 initial={{ opacity: 0, x: -30 }}
@@ -175,7 +179,6 @@ export default function Projects() {
                 </motion.a>
               </motion.div>
 
-              {/* Right Image Card */}
               <motion.div 
                 className="flex justify-center items-center"
                 initial={{ opacity: 0, x: 30, scale: 0.9 }}
@@ -199,7 +202,6 @@ export default function Projects() {
           </div>
         </motion.div>
 
-        {/* Navigation Dots */}
         <motion.div 
           className="flex justify-center gap-4 mt-16"
           initial={{ opacity: 0, y: 20 }}

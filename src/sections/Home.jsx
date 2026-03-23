@@ -2,6 +2,7 @@ import React, { useMemo, useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaTwitter, FaLinkedinIn, FaGithub } from "react-icons/fa";
 import avator from "../assets/avator.png";
+import LazyImage from "../components/LazyImage";
 
 const socials = [
   {
@@ -68,7 +69,7 @@ export default function Home() {
 
   return (
     <section id="home" className="w-full h-screen relative overflow-hidden bg-black">
-      {/* Animated Background Gradients */}
+      
       <div className="absolute inset-0">
         <motion.div
           className="absolute -top-40 -left-40 w-[600px] h-[600px] rounded-full bg-gradient-to-r from-[#1cd8d2] via-[#00bf8f] to-[#302b63] opacity-20 blur-[140px]"
@@ -83,10 +84,10 @@ export default function Home() {
       </div>
 
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
-        {/* Left Content */}
+        
         <div className="flex flex-col justify-center h-full text-center lg:text-left pl-4 sm:pl-8 md:pl-16 lg:pl-20">
           <div className="w-fit mx-auto lg:mx-0">
-            {/* Role Typing Effect */}
+            
             <motion.div
               className="text-base sm:text-lg md:text-xl lg:text-2xl font-medium text-[#1cd8d2] tracking-wider min-h-[2em] mb-4"
               initial={{ opacity: 0, y: 20 }}
@@ -97,7 +98,6 @@ export default function Home() {
               <span className="inline-block w-[2px] ml-1 bg-[#1cd8d2] animate-pulse align-middle" style={{ height: "1em" }} />
             </motion.div>
 
-            {/* Main Heading */}
             <motion.h1
               className="mt-2 mb-6 font-bold"
               initial={{ opacity: 0, y: 40 }}
@@ -176,7 +176,7 @@ export default function Home() {
 
         <div className="relative hidden lg:block">
           {" "}
-          <motion.div 
+          <motion.div
             className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
             animate={{
               scale: [1, 1.15, 1],
@@ -197,11 +197,8 @@ export default function Home() {
               background: "conic-gradient(from 0deg, #1cd8d2, #00bf8f, #302b63, #1cd8d2)",
             }} />
 
-          
-          <motion.img
-            src={avator}
-            alt="Vinarm Kumar"
-            className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
+          <motion.div
+            className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
             style={{
               right: "-80px",
               width: "min(45vw, 780px)",
@@ -210,7 +207,13 @@ export default function Home() {
             initial={{ opacity: 0, y: 40, scale: 0.98 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{ delay: 0.6, duration: 0.8 }}
-          />{" "}
+          >
+            <LazyImage
+              src={avator}
+              alt="Vinarm Kumar"
+              className="w-full h-full object-contain select-none"
+            />
+          </motion.div>{" "}
         </div>
       </div>
     </section>

@@ -25,7 +25,7 @@ const experiences = [
 export default function Experience() {
   return (
     <section id="experience" className="relative w-full bg-black text-white py-24 px-4 md:px-8 overflow-hidden">
-      {/* Background Effects */}
+      
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           className="absolute top-20 right-0 w-96 h-96 bg-gradient-to-l from-[#1cd8d2]/10 to-transparent rounded-full blur-3xl"

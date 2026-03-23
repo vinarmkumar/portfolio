@@ -19,14 +19,12 @@ class Particle {
     this.y += this.vy;
     this.z += this.vz;
 
-    // Bounce off edges
     if (this.x < 0 || this.x > this.canvas.width) this.vx *= -1;
     if (this.y < 0 || this.y > this.canvas.height) this.vy *= -1;
     if (this.z > 300 || this.z < -150) {
       this.z = this.z > 300 ? -150 : 300;
     }
 
-    // Mouse interaction
     const dx = mouseX - this.x;
     const dy = mouseY - this.y;
     const distance = Math.sqrt(dx * dx + dy * dy);
@@ -85,11 +83,10 @@ export default function ParticlesBackground() {
 
     let animationId;
     const animate = () => {
-      // Dark background
+
       ctx.fillStyle = "rgba(0, 0, 0, 0.95)";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      // Update and draw particles
       particles.forEach((p) => {
         p.update(mousePos.x, mousePos.y);
         p.draw(ctx);

@@ -36,7 +36,7 @@ const educationData = [
 export default function Education() {
   return (
     <section id="education" className="relative w-full bg-black text-white py-24 px-4 md:px-8 overflow-hidden">
-      {/* Background Effects */}
+      
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <motion.div
           className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-r from-[#302b63]/15 to-transparent rounded-full blur-3xl"
@@ -76,7 +76,7 @@ export default function Education() {
               viewport={{ once: true, amount: 0.3 }}
             >
               <div className="group relative">
-                {/* Animated left accent bar */}
+                
                 <motion.div
                   className={`absolute -left-3 top-0 w-1.5 h-full rounded-full bg-gradient-to-b ${edu.color} origin-top`}
                   initial={{ scaleY: 0 }}
@@ -85,9 +85,8 @@ export default function Education() {
                   viewport={{ once: true }}
                 />
 
-                {/* Main card */}
                 <div className="pl-8 pr-6 py-8 rounded-xl border border-[#1cd8d2]/20 group-hover:border-[#1cd8d2]/60 bg-gradient-to-r from-[#1cd8d2]/5 to-transparent backdrop-blur-sm hover:from-[#1cd8d2]/10 transition-all duration-500">
-                  {/* Top section with icon and duration */}
+                  
                   <div className="flex items-start justify-between gap-4 mb-4 flex-wrap">
                     <div className="flex items-center gap-4">
                       <div className={`p-3 rounded-lg bg-gradient-to-br ${edu.color} text-white group-hover:scale-110 transition-transform duration-300`}>
@@ -105,7 +104,6 @@ export default function Education() {
                     </div>
                   </div>
 
-                  {/* Details grid */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ml-16 md:ml-0">
                     <div>
                       <p className="text-sm text-gray-400 uppercase tracking-wide font-semibold mb-1">Specialization</p>

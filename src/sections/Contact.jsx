@@ -2,13 +2,12 @@ import { useState, useMemo } from "react";
 import emailjs from "@emailjs/browser";
 import { motion } from "framer-motion";
 import LazyImage from "../components/LazyImage";
-import Astra from "../assets/Astra.png";
+import coding from "../assets/coding.jpg";
 
 const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
 const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 
-// Generate stars outside component to avoid impure function errors
 const generateStars = () => {
   return [...Array(30)].map((_, i) => ({
     id: i,
@@ -82,7 +81,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="w-full min-h-screen relative bg-black overflow-hidden text-white px-4 md:px-20 py-20 md:py-0 flex flex-col md:flex-row items-center justify-center gap-6 md:gap-10">
-      {/* Stars Background */}
+      
       <div className="absolute inset-0 overflow-hidden bg-black">
         {stars.map((star) => (
           <motion.div
@@ -103,26 +102,38 @@ export default function Contact() {
           className="w-full md:w-1/2 flex justify-center perspective order-2 md:order-1"
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          animate={{ 
-            y: [0, -30, 0],
-            rotateX: [0, 10, 0],
-            rotateY: [0, -15, 0],
-            rotateZ: [0, 5, 0]
-          }}
-          transition={{ 
-            duration: 6, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            times: [0, 0.5, 1]
-          }}
           style={{ perspective: "1000px" }}
         >
-          <motion.img
-            src={Astra}
-            alt="Contact"
-            className="w-48 md:w-72 lg:w-96 rounded-2xl shadow-2xl object-cover filter drop-shadow-[0_0_30px_rgba(28,216,210,0.3)]"
-            whileHover={{ scale: 1.1 }}
-          />
+          <motion.div
+            className="relative"
+            animate={{ 
+              y: [0, -8, 0],
+            }}
+            transition={{ 
+              duration: 3, 
+              repeat: Infinity, 
+              ease: "easeInOut",
+            }}
+          >
+            <motion.img
+              src={coding}
+              alt="Coding"
+              className="w-48 md:w-72 lg:w-96 rounded-2xl shadow-2xl object-cover filter drop-shadow-[0_0_30px_rgba(28,216,210,0.3)]"
+              whileHover={{ scale: 1.1 }}
+              animate={{
+                filter: [
+                  "drop-shadow(0 0 30px rgba(28,216,210,0.3))",
+                  "drop-shadow(0 0 50px rgba(28,216,210,0.6))",
+                  "drop-shadow(0 0 30px rgba(28,216,210,0.3))"
+                ]
+              }}
+              transition={{
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            />
+          </motion.div>
         </motion.div>
 
         <motion.form
