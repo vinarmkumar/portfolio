@@ -1,14 +1,7 @@
 import { useState, useEffect, useMemo } from "react"
 
 import LazyImage from "../components/LazyImage";
-import img1 from "../assets/img1.JPG"
-import img2 from "../assets/img2.JPG"
-import img3 from "../assets/img3.JPG"
 import quantumcode from "../assets/QuantumCode.png"
-
-import photo1 from "../assets/photo1.JPG"
-import photo2 from "../assets/photo2.PNG"
-import photo3 from "../assets/photo3.png"
 import { motion } from "framer-motion"
 
 const useIsMobile = (query = "(max-width : 639px)") => {
@@ -41,33 +34,6 @@ export default function Projects() {
         bgGradient: "from-[#0f2027] via-[#203a43] to-[#2c5364]",
         accentColor: "#1cd8d2",
         image: quantumcode,
-      },
-      {
-        title: "nk studio",
-        tagline: "Creative Excellence",
-        description: "Empowering brands to inspire people with innovative design solutions",
-        link: "https://www.nk.studio/",
-        bgGradient: "from-[#001f3f] to-[#004d7a] via-[#00897b]",
-        accentColor: "#1cd8d2",
-        image: isMobile ? photo1 : img1,
-      },
-      {
-        title: "Gamily",
-        tagline: "Gaming Community",
-        description: "Match with other gamers and build your gaming squad",
-        link: "https://gamilyapp.com/",
-        bgGradient: "from-[#1a0033] via-[#4a0080] to-[#0044cc]",
-        accentColor: "#00ffff",
-        image: isMobile ? photo2 : img2,
-      },
-      {
-        title: "Hungry Tiger",
-        tagline: "Food Experience",
-        description: "Unwrap the adventure with premium food quality",
-        link: "https://www.eathungrytiger.com/",
-        bgGradient: "from-[#664422] to-[#ff9944] via-[#dd7722]",
-        accentColor: "#ffcc00",
-        image: isMobile ? photo3 : img3,
       },
     ],
     [isMobile]
